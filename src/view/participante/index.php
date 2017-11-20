@@ -1,8 +1,18 @@
 <style>
-.logo {
-	width: 100px;
-	height: 100px;
+.jumbotron {
+	background-color: #FFFFFF;
+	opacity: 0.65;
 }
+
+.logo {
+    width : 100px;
+    height:100px;
+    margin: 30px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-80%, -60%) }
 </style>
 
 
@@ -20,171 +30,145 @@
 
 
 <div class="container">
-	<div style="width: 80px;"></div>
-	<div class="jumbotron"
-		style="margin-bottom: 10px; padding-bottom: 10px;">
+	<div class=container4 >
 		<img class="logo" alt="" src="img/logo_350.png">
-		<div class="letreiro">
-			<h2>
-				<label>4º Encontro Nacional dos Gestores</label><br> <label>de
-					Treinamento da Indústria Farmacêutica</label>
-			</h2>
-		</div>
 	</div>
-	<div class="jumbotron"
-		style="background-color: #FFFFFF; opacity: 0.65; margin-top: 10px; padding-top: 10px;">
+	<br><br><br><br><br><br>
+	<div class="letreiro">
+		<h2>
+			<label>4º Encontro Nacional dos Gestores </label> <label>de
+				Treinamento da Indústria Farmacêutica</label>
+		</h2>
+	</div>
+	<div class="jumbotron">
 		<div class="form-horizontal">
-			<h4>
-				<label style="font-weight: lighter;">Não fique de fora! Garanta o
-					seu lugar no encontro mais esperado do ano.</label>
-			</h4>
+			<h3>
+				<label>Dados Pessoais</label>
+			</h3>
 			<div class="form-group">
 				<div class="col-md-12">
 					<input name="txtNome" type="text" class="form-control" id="txtNome"
-						required="required" size="45" maxlength="70"
-						placeholder="Nome Completo" /> <input name="txtID" type="hidden"
-						id="txtID" size="45" />
-				</div>
-			</div>
-			<br>
-			<div class="form-group">
-				<div class="col-md-12">
-					<input name="txtNome" type="text" class="form-control" id="txtNome"
-						size="45" maxlength="70" placeholder="Nome para o crachá" />
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-md-12">
-					<input name="txtNome" type="text" class="form-control" id="txtNome"
-						size="45" maxlength="70" placeholder="Nome empresa"
-						required="required" />
+						size="45" maxlength="70" placeholder="Nome" /> <input name="txtID"
+						type="hidden" id="txtID" size="45" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-md-9">
-					<br> <input name="txtNome" type="text" class="form-control"
-						id="txtNome" size="45" maxlength="70" placeholder="Cargo" />
+					<select name="cboTipo" id="cboTipo" onchange=""
+						class="form-control"><option value="">Cargo</option>
+						<option value="1">Diretor</option>
+						<option value="2">Gerente</option>
+						<option value="31">Coordenador</option>
+						<option value="4">Supervisor</option>
+						<option value="5">Analista</option>
+					</select>
 				</div>
 				<div class="col-md-3">
-					<input title="Data de nascimento" id="txtDataNascimento"
-						class="form-control" type="date" />
+					<input id="txtDataNascimento" class="form-control" type="date" />
+				</div>
+				<br>
+			</div>
+		</div>
+		<div class="form-horizontal">
+			<h3>
+				<label>Endereço</label>
+			</h3>
+			<div class="form-group">
+				<div class="col-md-3">
+					<input name="txtCEP" type="text" class="form-control" id="txtCEP"
+						size="15" maxlength="8" placeholder="Cep"
+						onkeypress="return EntradaNumerico(event)" />
+				</div>
+				<div class="col-md-3">
+					<img src="img/lupa.gif" width="20" height="20" id="buscaCEP"
+						style="cursor: pointer"></img><i> Ex: 99999999</i>
+
 				</div>
 			</div>
-			<br>
 			<div class="form-group">
 				<div class="col-md-12">
 					<input name="txtRua" type="text" class="form-control" id="txtRua"
-						size="20" maxlength="60" placeholder="Endereco" />
+						size="20" maxlength="60" placeholder="Rua" />
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-md-6">
-					<br> <input name="txtEmail" type="email" class="form-control"
-						id="txtEmail" size="50" maxlength="60"
-						placeholder="Email Profissional" r />
+				<div class="col-md-3">
+					<select name="cboUF" id="cboUF" onchange="" class="form-control">
+						<option value="">UF</option>
+						<option value="AC">Acre</option>
+						<option value="AL">Alagoas</option>
+						<option value="AP">Amapá</option>
+						<option value="AM">Amazonas</option>
+						<option value="BA">Bahia</option>
+						<option value="CE">Ceará</option>
+						<option value="DF">Distrito Federal</option>
+						<option value="GO">Goiás</option>
+						<option value="ES">Espírito Santo</option>
+						<option value="MA">Maranhão</option>
+						<option value="MT">Mato Grosso</option>
+						<option value="MS">Mato Grosso do Sul</option>
+						<option value="MG">Minas Gerais</option>
+						<option value="PA">Pará</option>
+						<option value="PB">Paraiba</option>
+						<option value="PR">Paraná</option>
+						<option value="PE">Pernambuco</option>
+						<option value="PI">Piauí</option>
+						<option value="RJ">Rio de Janeiro</option>
+						<option value="RN">Rio Grande do Norte</option>
+						<option value="RS">Rio Grande do Sul</option>
+						<option value="RO">Rondônia</option>
+						<option value="RR">Rorâima</option>
+						<option value="SP">São Paulo</option>
+						<option value="SC">Santa Catarina</option>
+						<option value="SE">Sergipe</option>
+						<option value="TO">Tocantins</option>
+					</select>
 				</div>
-				<div class="col-md-6">
-					<br> <input name="txtEmail" type="email" class="form-control"
-						id="txtEmail" size="50" maxlength="60" placeholder="Email Pessoal" />
+				<div class="col-md-3">
+					<br> <input name="txtNumero" type="text" class="form-control"
+						id="txtNumero" size="5" maxlength="6" placeholder="Número" />
+				</div>
+				<div class="col-md-4">
+					<br> <input name="txtComplemento" type="text" class="form-control"
+						id="txtComplemento" size="45" maxlength="60"
+						placeholder="Complemento" />
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-md-6">
-					<br> <input name="txtEmail" type="email" class="form-control"
-						id="txtEmail" size="50" maxlength="60" placeholder="Telefone" />
+				<div class="col-md-4">
+					<input name="txtBairro" type="text" class="form-control"
+						id="txtBairro" size="45" maxlength="60" placeholder="Bairro" />
 				</div>
-				<div class="col-md-6">
-					<br> <input name="txtEmail" type="email" class="form-control"
-						id="txtEmail" size="50" maxlength="60"
-						placeholder="Celular Pessoal" />
+				<div class="col-md-4">
+					<input name="txtCidade" type="text" class="form-control"
+						id="txtCidade" size="45" maxlength="60" placeholder="Cidade" />
 				</div>
-			</div>
-
-
-			<div class="form-group">
-				<div class="col-md-12">
-					<br>Área de responsabilidade:
-				</div>
-			</div>
-			<br>
-			<div class="form-group" style="text-align: left;">
-				<div class="col-md-3">&nbsp;</div>
-				<div class="col-md-2" style="width: 158px;">
-					<div class="checkbox">
-						<label for="optPropagandaMedica"><input id="optPropagandaMedica"
-							type="checkbox" style="width: 15px; height: 15px; top: 3px;" />Propaganda
-							Médica</label>
-					</div>
-				</div>
-				<div class="col-md-1" style="width: 100px;" >
-					<div class="checkbox">
-						<label for="optHospitalar" style="left: 0px;"><input id="optHospitalar"
-							type="checkbox" style="width: 15px; height: 15px; top: 3px;" />Hospitalar</label>
-					</div>
-				</div>
-				<div class="col-md-1">
-					<div class="checkbox">
-						<label for="optAcesso" style="left: 0px;"><input id="optAcesso" type="checkbox"
-							style="width: 15px; height: 15px; top: 3px;" />Acesso</label>
-					</div>
-				</div>
-				<div class="col-md-1">
-					<div class="checkbox">
-						<label for="optVarejo"><input id="optVarejo" type="checkbox"
-							style="width: 15px; height: 15px; top: 3px;" />Varejo</label>
-					</div>
-				</div>
-				<div class="col-md-1">
-					<div class="checkbox">
-						<label for="optConsumer"><input id="optConsumer" type="checkbox"
-							style="width: 15px; height: 15px; top: 3px;" />Consumer</label>
-					</div>
-				</div>
-				<div class="col-md-3">&nbsp;</div>
 			</div>
 			<div class="form-group">
-				<div class="col-md-1">&nbsp;</div>
-				<div class="col-md-10">
-					<input name="txtNome" type="text" class="form-control" id="txtNome"
-						size="45" maxlength="70" placeholder="Outros" />
+				<div class="col-md-8">
+					<br> <input name="txtEmail" type="text" class="form-control"
+						id="txtEmail" size="50" maxlength="60" placeholder="Email" />
 				</div>
-				<div class="col-md-1">&nbsp;</div>
-			</div>
-			<div class="form-group">
-				<div class="col-md-6">
-					<br>
-					<textarea rows="3" cols="5" name="txtEmail" type="text"
-						class="form-control" id="txtEmail" size="50" maxlength="60"
-						placeholder="Qual sua música favorita?"></textarea>
-				</div>
-				<div class="col-md-6">
-					<br>
-					<textarea rows="3" cols="5" name="txtEmail" type="text"
-						class="form-control" id="txtEmail" size="50" maxlength="60"
-						placeholder="Qual seu lugar favorito no mundo?"></textarea>
+				<div class="col-md-2">
+					<select name="cboTipo" id="cboTipo" onchange=""
+						class="form-control"><option value="">Tipo</option>
+						<option value="1">pessoal</option>
+						<option value="2">profissional</option>
+					</select>
 				</div>
 			</div>
-			<br>
 			<div class="form-group">
-				<div class="col-md-12">
-					<label>Anexe aqui uma foto sua de formato JPG para o seu crachá: <input
-						type="file" name="arquivos" accept="image/png, image/jpeg"
-						multiple /></label>
-				</div>
-			</div>
-			<br>
-			<div class="form-group">
-				<div class="col-md-12">
-					<button type="button" name="cmdSalvar" id="cmdSalvarPessoa">Salvar
+				<div class="col-md-4">
+					<button type="button" name="cmdSalvarPessoa" id="cmdSalvarPessoa">Salvar
 					</button>
-					<button type="reset" name="cmdLimpar" id="cmdLimparPessoa">Limpar</button>
+				</div>
+				<div class="col-md-4">
+					<button type="reset" name="cmdLimparPessoa" id="cmdLimparPessoa">Limpar
+					</button>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="jumbotron">
-		<div>
-			<img class="logos" alt="" src="img/logos.png">
 		</div>
 	</div>
 </div>
+
+
