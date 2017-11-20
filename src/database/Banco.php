@@ -14,6 +14,7 @@ class Banco {
 	private $user;
 	private $pass;
 	public function __construct() {
+		
 		$dadosCon = new DadosConectaBanco();
 		$this->tipo = $dadosCon->getTipo();
 		$this->host = $dadosCon->getHost();
@@ -23,23 +24,30 @@ class Banco {
 	}
 	public function conectar($db) {
 		// Pega dados de conexão
+		
 		$con = $this->tipo_bd();
 		if ($con) {
 			try {
 				$con->setAttribute ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 				return $con;
 			} catch ( PDOException $e ) {
+				echo $e->getMessage();
 				$msg = "Erro de conexão com o banco de dados: Código: " . $e->getCode () . "Mensagem " . $e->getMessage () . "hora: " . date ( 'H:i:s' );
 			}
 			return ($con = false);
+		}else{
+		   //var_dump($con);	
 		}
 	}
 	
 	// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 	private function tipo_bd() {
-		switch ($tipo = $this->tipo) {
+		$dbname = $this->bd;
+		$user = $this->user;
+		$pass = $this->pass;
+		switch ($this->tipo) {
 			case 'mysql' :
-				$con = new PDO ("mysql:host=localhost;dbname=cadastro","root", "", array (PDO::ATTR_PERSISTENT => true));
+				$con = new PDO ("mysql:host=localhost;dbname=".$dbname,$user, $pass, array (PDO::ATTR_PERSISTENT => true));
 				break;
 			case 'pgsql' :
 				$con = new PDO ( "pgsql:dbname={$bd};user={$user}; password={$pass};host=$host" );

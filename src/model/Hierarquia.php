@@ -1,7 +1,8 @@
 <?php
+
 namespace src\model;
 
-class TipoEmail {
+class Hierarquia {
 	private $id;
 	private $descricao;
 	public function __construct($id, $descricao) {
@@ -28,5 +29,4 @@ class TipoEmail {
 	public function jsonSerialize() {
 		return get_object_vars($this);
 	}
-	
 }

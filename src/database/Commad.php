@@ -23,6 +23,7 @@ class Commad {
 				$recordSet->execute();
 				$retorno = $recordSet->fetchAll ();
 			} catch ( Exception $e ) {
+				echo  $e->getMessage();
 				// $msg = "Erro: Código: " . $e->getCode () . "Mensagem " . $e->getMessage ();
 				// if ($db[ret]=='xml')$msg .= "<reg> $msg </reg>";
 			}
@@ -32,22 +33,26 @@ class Commad {
 	}
 
 	public function incluir($db) {
+		
 		$banco = new Banco();
 		$connection = $banco->conectar($banco);
 		if ($connection != false) {
 			try {
 				$sql = "INSERT INTO " . $db [tab] . "(" . $db [campos] . ") VALUES (" . $db [values] . ")";
-				// echo $sql; exit;
+				//	 echo $sql; 
 				$res = $connection->prepare ( $sql );
 				$res->execute ();
 				$retorno = true;
 			} catch ( Exception $e ) {
+				echo $sql;
+				echo $e->getMessage();
 				//$msg = "Erro de inclusão: Código: " . $e->getCode () . "Mensagem " . $e->getMessage ();
 				//$msg .= "<reg> $msg </reg>";
 				$retorno = false;
 			}
 		} else {
 			if (! $retorno)
+				echo "não conectou!";
 				$retorno = $msg;
 				$retorno = false;
 		}

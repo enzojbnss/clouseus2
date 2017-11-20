@@ -3,11 +3,9 @@
 namespace src\utils;
 
 class Result {
-	
 	private $lista;
-	
-	public function __construct($lista){
-		$this->lista = $lista; 
+	public function __construct($lista) {
+		$this->lista = $lista;
 	}
 	public function useXML() {
 		// conta a qtde de elementos da matriz
@@ -48,11 +46,10 @@ class Result {
 		}
 		// teste_xml($linha); //LINHA SÓ PARA TESTE
 		$linha .= "<n_reg>$linhaAtual</n_reg>";
-		$linha = "<?xml version='1.0' encoding='utf-8' ?>"."<reg>".$linha."</reg>";
-		header("Content-type: application/xml;charset=UTF-8");
-		echo  $linha;
+		$linha = "<?xml version='1.0' encoding='utf-8' ?>" . "<reg>" . $linha . "</reg>";
+		header ( "Content-type: application/xml;charset=UTF-8" );
+		echo $linha;
 	}
-	
 	public function useText($conteudo) {
 		$numeroLinha = count ( $this->lista );
 		$linhaAtual = 0;
@@ -81,22 +78,22 @@ class Result {
 				break;
 			}
 		}
-		echo $linha; 
+		echo $linha;
 	}
-	
-	public function getObject(){
+	public function getObject() {
 		return $this->lista;
 	}
-	
-	public function useJson(){
-		$obj = [];
-		foreach ($this->lista as $index=>$objeto){
-			array_push($obj, $objeto->jsonSerialize());
+	public function useJson() {
+		$obj = [ ];
+		foreach ( $this->lista as $index => $objeto ) {
+			array_push ( $obj, $objeto->jsonSerialize () );
 		}
-		header("Content-type:application/json");
-		echo json_encode($obj);
-		
+		header ( "Content-type:application/json" );
+		echo json_encode ( $obj );
 	}
-	
-	
+	public function useSimpleJson($objeto) {
+		$obj = $objeto->jsonSerialize ();
+		header ( "Content-type:application/json" );
+		echo json_encode ( $obj );
+	}
 }
